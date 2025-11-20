@@ -1,0 +1,278 @@
+/* input_post.css */
+
+:root {
+    --primary-green: #2e7d32;
+    --secondary-green: #4caf50;
+    --light-green: #e8f5e9;
+    --dark-green: #1b5e20;
+    --text-dark: #333;
+    --text-light: #666;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(#DAEFCF, white);
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Sidebar on the left */
+.sidebar {
+    width: 270px;
+    background-color: #12372A;
+    color: white;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: flex; /* Arranges sidebar content vertically */
+    flex-direction: column; /* Arranges sidebar content vertically */
+}
+
+/* For navigation link container */
+.sidebar-nav {
+    padding: 15px 10px;
+}
+
+/* For navigation links */
+.sidebar a {
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    border-bottom: 2px solid #ddffe848; 
+    padding: 10px 12px;
+    border-radius: 0px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+/* For icon beside each navigation link */
+.sidebar a i {
+    width: 22px;
+    text-align: center;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+/* Sidebar option when selected (is on that page )*/
+.sidebar a.active {
+    background: rgba(118,224,54,0.2);
+    color: #76E036;
+    font-weight: 500;
+}
+
+/* Sidebar option when hovered */
+.sidebar a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Back button container below sidebar */
+.back-btn-wrapper {
+    text-align: left;
+    padding-left: 150px;
+    margin-top: 20px;
+}
+
+/* Back button */
+.back-btn {
+    background-color: #87b391;
+    color: #000000;
+    border: 1px solid #c3e6cb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Back button when hovered */
+.back-btn:hover {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+
+.back-btn-wrapper {
+    text-align: left;
+    padding-left: 150px;
+    margin-top: 20px;
+}
+
+.back-btn {
+    background-color: #87b391;
+    color: #000000;
+    border: 1px solid #c3e6cb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+
+
+.form {
+    width: 80%;
+    max-width: 950px;
+    margin-right: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    float: right;
+}
+
+.form-title {
+    color: var(--dark-green);
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.form-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-green);
+}
+
+.form-label {
+    display: block;
+    margin: 20px 0 8px;
+    color: var(--dark-green);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.form-label i {
+    margin-right: 8px;
+    color: var(--secondary-green);
+}
+
+.form-input {
+    width: 97%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--secondary-green);
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+textarea.form-input {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.form-note {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-top: 5px;
+    display: block;
+}
+
+.current-images {
+    margin: 20px 0;
+}
+
+.image-uploaded {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.image-uploaded img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.image-checkbox {
+    margin-top: 8px;
+}
+
+.btn{ 
+    display:flex;
+    justify-content: right;
+    gap: 8px;
+}
+
+.btn-submit {
+    background-color: var(--secondary-green);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 25px;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-submit:hover {
+    background-color: var(--dark-green);
+}
+
+.btn-cancel {
+    text-decoration: none;
+    background-color: #f5f5f5;
+    color: var(--text-dark);
+    border: none;
+    padding: 14px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 25px;
+    margin-left: 15px;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-cancel:hover {
+    background-color: #e0e0e0;
+}
+
+.file-input {
+    padding: 10px;
+    background-color: var(--light-green);
+    border-radius: 6px;
+}
+

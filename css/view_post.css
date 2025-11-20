@@ -1,0 +1,473 @@
+:root {
+    --primary-green: #2e7d32;
+    --secondary-green: #4caf50;
+    --light-green: #e8f5e9;
+    --dark-green: #1b5e20;
+    --text-dark: #333;
+    --text-light: #666;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(#DAEFCF, white);
+    padding: 0;
+    margin: 0;
+}
+
+/* Sidebar on the left */
+.sidebar {
+    width: 270px;
+    background-color: #12372A;
+    color: white;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: flex; /* Arranges sidebar content vertically */
+    flex-direction: column; /* Arranges sidebar content vertically */
+}
+
+/* For navigation link container */
+.sidebar-nav {
+    padding: 15px 10px;
+}
+
+/* For navigation links */
+.sidebar a {
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    border-bottom: 2px solid #ddffe848; 
+    padding: 10px 12px;
+    border-radius: 0px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+/* For icon beside each navigation link */
+.sidebar a i {
+    width: 22px;
+    text-align: center;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+/* Sidebar option when selected (is on that page )*/
+.sidebar a.active {
+    background: rgba(118,224,54,0.2);
+    color: #76E036;
+    font-weight: 500;
+}
+
+/* Sidebar option when hovered */
+.sidebar a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Back button container below sidebar */
+.back-btn-wrapper {
+    text-align: left;
+    padding-left: 150px;
+    margin-top: 20px;
+}
+
+/* Back button */
+.back-btn {
+    background-color: #87b391;
+    color: #000000;
+    border: 1px solid #c3e6cb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Back button when hovered */
+.back-btn:hover {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+
+
+.container {
+    background-color: #f5f5f5;
+    width: 80%;
+    max-width: 950px;
+    margin-right: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    float: right;
+}
+
+.post-header {
+    position: relative;
+    border-bottom: 2px solid var(--light-green);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    padding-right: 200px; 
+}
+
+.action-buttons {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.edit-btn {
+    color: #1976d2;
+    background-color: #e3f2fd;
+}
+
+.edit-btn:hover {
+    background-color: #bbdefb;
+}
+
+.delete-btn {
+    color: #e53935;
+    background-color: #ffebee;
+}
+
+.delete-btn:hover {
+    background-color: #ffcdd2;
+}
+
+.ban-btn {
+    color: #f57c00;
+    background-color: #fff3e0;
+}
+
+.ban-btn:hover {
+    background-color: #ffe0b2;
+}
+
+.post-title {
+    color: var(--dark-green);
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.post-info i {
+    color: var(--secondary-green);
+    margin-right: 5px;
+}
+
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.carousel:hover {
+    transform: scale(1.01);
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px; 
+    object-fit: contain; /* Keep image aspect ratio */
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(46, 125, 50, 0.8);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(27, 94, 32, 1.0);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-btn.left {
+    left: 2px;
+}
+
+.carousel-btn.right {
+    right: 2px;
+}
+
+.image-counter {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.post-content {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 20px 0;
+    overflow-wrap: break-word;   /* Break word if too long */
+    word-break: break-all;    /* Break word for non-English word*/
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.tag {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.tag:hover {
+    background-color: var(--secondary-green);
+    color: white;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.like-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.like-btn:hover {
+    color: var(--primary-green);
+}
+
+.like-btn i {
+    font-size: 18px;
+}
+
+.like-btn.liked {
+    color: red;
+}
+
+.like-btn.liked:hover {
+    color: darkred;
+}
+
+.comments-section {
+    margin-top: 0;
+}
+
+.comment {
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--secondary-green);
+}
+
+.comment-delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #e53935;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #ffebee;
+}
+
+.comment-delete-btn:hover {
+    background-color: #ffcdd2;
+}
+
+.comment-ban-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #f57c00;
+    background-color: #fff3e0;
+}
+
+.comment-ban-btn:hover {
+    background-color: #ffe0b2;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: var(--dark-green);
+    margin-bottom: 5px;
+}
+
+.comment-time {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.comment-form {
+    margin-top: 30px;
+    background-color: var(--light-green);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.comment-form h3 {
+    margin-top: 0;
+    color: var(--dark-green);
+}
+
+.comment-like-btn {
+    position: absolute;
+    top: 15px;
+    right: 100px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.comment-form textarea {
+    width: 95%;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: vertical;
+    min-height: 50px;
+    font-family: inherit;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.comment-title {
+    margin-top: 40px;
+}
+
+.submit-btn {
+    background-color: var(--secondary-green);
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.submit-btn:hover {
+    background-color: var(--dark-green);
+}
+
+.submit-btn i{
+    margin-right: 5px;
+}
+.back {
+    display: inline-block;
+    color: var(--secondary-green);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.back i {
+    margin-right: 5px;
+}
+
+.no-comments {
+    text-align: center;
+    color: var(--text-light);
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.no-comments i{
+    font-size: 20px; 
+    margin-top: 15px;
+}
+
+.banned-notice {
+    color: #e53935;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffebee;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
