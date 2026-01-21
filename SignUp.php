@@ -34,35 +34,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif ($password !== $confirm_password) {
         $error = "Passwords do not match!";
     } else {
-        $check_sql = "SELECT * FROM users WHERE email = '$email'";
-        $check_result = mysqli_query($conn, $check_sql);
+        // Use prepared statement to prevent SQL injection
+        $check_stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $check_stmt->bind_param("s", $email);
+        $check_stmt->execute();
+        $check_result = $check_stmt->get_result();
 
-        if (mysqli_num_rows($check_result) > 0) {
+        if ($check_result->num_rows > 0) {
             $error = "This email is already registered. Please log in.";
         } else {
-            $role = (strpos($email, '@admin') !== false) ? 'admin' : 'user';
             // Prevent users from signing up with @admin.com
             if (str_ends_with($email, '@admin.com')) {
                 $error = "Sorry, @admin.com addresses are reserved – please use another email.";
+            } else {
+                $role = 'user'; // Force all users to have 'user' role
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+                // Use prepared statement to prevent SQL injection
+                $insert_stmt = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
+                $insert_stmt->bind_param("ssss", $username, $email, $hashed_password, $role);
+
+                if ($insert_stmt->execute()) {
+                    header("Location: Homepage.php");
+                    exit();
+                } else {
+                    $error = "Error: " . $conn->error;
+                }
             }
-            $role = 'user'; // Force all users to have 'user' role
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-
-
-
-        $sql = "INSERT INTO users (username, email, password, role)
-                VALUES ('$username', '$email', '$hashed_password', '$role')";
-
-        if (mysqli_query($conn, $sql)) {
-            header("Location: Homepage.php");
-            exit();
-
-        } else {
-            $error = "Error: " . mysqli_error($conn);
         }
     }
-  }
 }
 
 mysqli_close($conn);
@@ -209,7 +209,7 @@ mysqli_close($conn);
 
     <div class="signup-container">
     <div class="header-row">
-        <a href="HomePage.php" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
+        <a href="Homepage.php" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
         <h1 class="signup-title">Sign Up</h1>
     </div>
 
@@ -246,7 +246,7 @@ mysqli_close($conn);
             <button a href="LoginPage.php" type="submit" class="signup-btn">Sign Up</button>
             
             <div class="login-prompt">
-                Already have an account? <a href="LogInPage.php" class="login-link">Log in here</a>
+                Already have an account? <a href="LoginPage.php" class="login-link">Log in here</a>
             </div>
         </form>
     </div>

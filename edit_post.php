@@ -2,7 +2,7 @@
 session_start();
 // Check whether user logged in or not
 if (!isset($_SESSION['user_id'])) {
-    header("Location: LogInPage.php"); // Go to Login page
+    header("Location: LoginPage.php"); // Go to Login page
     exit;
 }
 

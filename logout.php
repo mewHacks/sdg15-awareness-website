@@ -2,5 +2,5 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: LogInPage.php"); // Redirect to login page after logout
+header("Location: LoginPage.php"); // Redirect to login page after logout
 exit;

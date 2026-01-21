@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     
 <div class="form-container">
-    <a href="LogInPage.php" class="back-top">← Back</a>
+    <a href="LoginPage.php" class="back-top">← Back</a>
 
     <h2>Forgot Password</h2>
     

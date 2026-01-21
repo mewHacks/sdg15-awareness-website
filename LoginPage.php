@@ -16,12 +16,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($email) || empty($password_input)) {
         $error = "Please fill in both fields!";
     } else {
-        $sql = "SELECT * FROM users WHERE email = '$email'";
-        $result = mysqli_query($conn, $sql);
+        // Use prepared statement to prevent SQL injection
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if (mysqli_num_rows($result) === 1) {
-            $user = mysqli_fetch_assoc($result);
-            if (password_verify($password_input,$user['password'])) {
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+            if (password_verify($password_input, $user['password'])) {
 
                 $_SESSION["username"] = $user["username"];
                 $_SESSION["user_id"] = $user["id"];
@@ -30,13 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                if (isset($_POST['remember'])) {
                     setcookie('email', $email, time() + (86400 * 7), "/");
+                    // Note: Storing passwords in cookies is not recommended for security
                     setcookie('password', $password_input, time() + (86400 * 7), "/");
                 } else {
                     setcookie('email', '', time() - 3600, "/");
                     setcookie('password', '', time() - 3600, "/");
                 }
 
-                header("Location: HomePage.php");
+                header("Location: Homepage.php");
                 exit();
             } else {
                 $error = "Incorrect password!";
@@ -204,7 +208,7 @@ mysqli_close($conn);
 
     <div class="login-container">
        <div class="header-row">
-    <a href="HomePage.php" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
+    <a href="Homepage.php" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
     <h1 class="login-title">Log In</h1>
 </div>
 

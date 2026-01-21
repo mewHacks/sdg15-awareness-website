@@ -79,6 +79,16 @@ CREATE TABLE IF NOT EXISTS likes (
     FOREIGN KEY (post_id) REFERENCES Posts(post_id) ON DELETE CASCADE,
     UNIQUE KEY unique_like (id, post_id)
 );
+
+CREATE TABLE IF NOT EXISTS CommentLikes (
+    Commentlikes_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL,
+    comment_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id) REFERENCES Users(id) ON DELETE CASCADE,
+    FOREIGN KEY (comment_id) REFERENCES Comments(comment_id) ON DELETE CASCADE,
+    UNIQUE KEY unique_comment_like (id, comment_id)
+);
 ";
 
 // Run table creation queries

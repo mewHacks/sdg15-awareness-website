@@ -3,7 +3,7 @@ session_start();
 include 'db_connect.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: LogInPage.php?redirect=myprofile.php");
+    header("Location: LoginPage.php?redirect=myprofile.php");
     exit();
 
 

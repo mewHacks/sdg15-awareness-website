@@ -20,7 +20,7 @@ $search_param = $search ? "%$search%" : "%"; // Defaults to "%" which matches ev
 // SQL query if have 
 
 // Set the profile link destination
-$profileLink = isset($_SESSION['user_id']) ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile.php';
+$profileLink = isset($_SESSION['user_id']) ? 'myprofile.php' : 'LoginPage.php?redirect=myprofile.php';
 ?>
 
 <!Doctype html>

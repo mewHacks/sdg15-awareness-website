@@ -54,13 +54,12 @@ $sql = "SELECT p.*, u.username, u.role,
 
     
 // Binds value for ? placeholders in SQL query:
-// current user's ID, search term for title + content + tag
-$params = array($_SESSION['user_id'], $search_param, $search_param, $search_param);
+// current user's ID (use 0 for guests), search term for title + content + tag
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+$params = array($user_id, $search_param, $search_param, $search_param);
 
-// Add search conditions if there's a search term
-if ($search) {
-    $sql .= " AND (p.title LIKE ? OR p.content LIKE ? OR p.tags LIKE ?)";
-}
+// Note: Search conditions are already included in base query via $search_param
+// which defaults to "%" (matches everything) when no search term is provided
 
 // Add tag filter conditions if tags are selected
 if (!empty($selected_tags)) {
@@ -91,12 +90,8 @@ switch ($sort_option) {
         $sql .= " ORDER BY p.created_at DESC"; // default: newest first
 }
 
-// Add search parameters if there's a search term
-if ($search) {
-    $params[] = $search_param; // search term for title
-    $params[] = $search_param; // search term for content 
-    $params[] = $search_param; // search term for tag
-}
+// Note: Search parameters were already added in initial $params array
+// No need to add them again here
 
 // Prepare final SQL query
 $stmt = $conn->prepare($sql);
@@ -141,7 +136,7 @@ while ($stmt->fetch()) {
 $stmt->close();
 
 // Set the profile link destination
-$profileLink = isset($_SESSION['user_id']) ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile.php';
+$profileLink = isset($_SESSION['user_id']) ? 'myprofile.php' : 'LoginPage.php?redirect=myprofile.php';
 
 ?>
 
@@ -154,7 +149,7 @@ $profileLink = isset($_SESSION['user_id']) ? 'myprofile.php' : 'LogInPage.php?re
     <title>Community <?php echo $is_admin ? '- Admin' : '' ?></title>
 
     <!-- Custom CSS for community index page-->
-    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">

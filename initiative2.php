@@ -4,7 +4,7 @@ session_start();
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 $search_param = $search ? "%$search%" : "%";
 
-$profileLink = isset($_SESSION['user_id']) ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile.php';
+$profileLink = isset($_SESSION['user_id']) ? 'myprofile.php' : 'LoginPage.php?redirect=myprofile.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

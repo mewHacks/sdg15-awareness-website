@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($stmt->execute()) {
             $message = "Password reset successful! Redirecting to login...";
             
-            header("Refresh:2; url=LogInPage.php");
+            header("Refresh:2; url=LoginPage.php");
         } else {
             $message = "Database error: " . $stmt->error;
         }

@@ -2,7 +2,7 @@
 session_start();
 
 $isLoggedIn = isset($_SESSION['user_id']);
-$profileLink = $isLoggedIn ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile.php';
+$profileLink = $isLoggedIn ? 'myprofile.php' : 'LoginPage.php?redirect=myprofile.php';
 ?>
 
 <!DOCTYPE html>
@@ -226,13 +226,13 @@ $profileLink = $isLoggedIn ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile
 
 <!-- Navbar -->
 <div class="navbar">
-    <a href="<?= $isLoggedIn ? 'about.php' : 'LogInPage.php' ?>">About</a>
-    <a href="<?= $isLoggedIn ? 'initiatives.php' : 'LogInPage.php' ?>">Initiatives</a>
-    <a href="<?= $isLoggedIn ? 'resources.php' : 'LogInPage.php' ?>">Resources</a>
-    <a href="<?= $isLoggedIn ? 'getinvolved.php' : 'LogInPage.php' ?>">Get Involved</a>
-    <a href="<?= $isLoggedIn ? 'events.php' : 'LogInPage.php' ?>">Events</a>
-    <a href="<?= $isLoggedIn ? 'index.php' : 'LogInPage.php' ?>">Community</a>
-    <a href="<?= $isLoggedIn ? 'contactus.php' : 'LogInPage.php' ?>">Contact Us</a>
+    <a href="<?= $isLoggedIn ? 'about.php' : 'LoginPage.php' ?>">About</a>
+    <a href="<?= $isLoggedIn ? 'initiatives.php' : 'LoginPage.php' ?>">Initiatives</a>
+    <a href="<?= $isLoggedIn ? 'resources.php' : 'LoginPage.php' ?>">Resources</a>
+    <a href="<?= $isLoggedIn ? 'getinvolved.php' : 'LoginPage.php' ?>">Get Involved</a>
+    <a href="<?= $isLoggedIn ? 'events.php' : 'LoginPage.php' ?>">Events</a>
+    <a href="<?= $isLoggedIn ? 'index.php' : 'LoginPage.php' ?>">Community</a>
+    <a href="<?= $isLoggedIn ? 'contactus.php' : 'LoginPage.php' ?>">Contact Us</a>
     <a href="<?= $profileLink ?>" class="profile-fa-icon"><i class="fas fa-user"></i></a>
 </div>
 
@@ -261,7 +261,7 @@ $profileLink = $isLoggedIn ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile
 <!-- Overview 1 -->
 <div class="overview1">
     <div class="about">
-        <a href="<?= $isLoggedIn ? 'about.php' : 'LogInPage.php' ?>">
+        <a href="<?= $isLoggedIn ? 'about.php' : 'LoginPage.php' ?>">
             <img src="https://miro.medium.com/max/1280/1*bvbDYGJfB81P2xEMrxNRpA.jpeg">
             <div class="brief">
                 <ul>
@@ -276,7 +276,7 @@ $profileLink = $isLoggedIn ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile
     </div>
 
     <div class="initiatives">
-        <a href="<?= $isLoggedIn ? 'initiatives.php' : 'LogInPage.php' ?>">
+        <a href="<?= $isLoggedIn ? 'initiatives.php' : 'LoginPage.php' ?>">
             <img src="https://www.agilityirl.com/wp-content/uploads/2019/10/Picture1-8-270x300.png">
             <div class="brief">
                 <ul>
@@ -293,7 +293,7 @@ $profileLink = $isLoggedIn ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile
     </div>
 
     <div class="resources">
-        <a href="<?= $isLoggedIn ? 'resources.php' : 'LogInPage.php' ?>">
+        <a href="<?= $isLoggedIn ? 'resources.php' : 'LoginPage.php' ?>">
             <img src="https://www.marketing91.com/wp-content/uploads/2020/07/Types-of-Resources.jpg">
             <div class="brief">
                 <ul>
@@ -310,7 +310,7 @@ $profileLink = $isLoggedIn ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile
 <!-- Overview 2 -->
 <div class="overview2">
     <div class="getinvolved">
-        <a href="<?= $isLoggedIn ? 'getinvolved.php' : 'LogInPage.php' ?>">
+        <a href="<?= $isLoggedIn ? 'getinvolved.php' : 'LoginPage.php' ?>">
             <img src="https://static.wixstatic.com/media/13f57d_6c10e17a02c944729a021b849d9ad49b~mv2.jpg/v1/fill/w_660,h_250,al_c/13f57d_6c10e17a02c944729a021b849d9ad49b~mv2.jpg">
             <div class="brief">
                 <ul>
@@ -325,7 +325,7 @@ $profileLink = $isLoggedIn ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile
     </div>
 
     <div class="events">
-        <a href="<?= $isLoggedIn ? 'events.php' : 'LogInPage.php' ?>">
+        <a href="<?= $isLoggedIn ? 'events.php' : 'LoginPage.php' ?>">
             <img src="https://th.bing.com/th/id/OIP.F64-83D9hp-98NWKeNcWDgHaFj?rs=1&pid=ImgDetMain">
             <div class="brief">
                 <ul>
@@ -340,7 +340,7 @@ $profileLink = $isLoggedIn ? 'myprofile.php' : 'LogInPage.php?redirect=myprofile
     </div>
 
     <div class="contactus">
-        <a href="<?= $isLoggedIn ? 'contactus.php' : 'LogInPage.php' ?>">
+        <a href="<?= $isLoggedIn ? 'contactus.php' : 'LoginPage.php' ?>">
             <img src="https://png.pngtree.com/png-vector/20220621/ourmid/pngtree-green-contact-us-icon-in-3d-vector-infographic-label-symbol-vector-png-image_47182812.jpg">
             <div class="brief2">
                 Any questions or suggestions?<br>Feel free to contact us!
