@@ -1,4 +1,4 @@
-# 🌍 SDG15 Awareness Website - Life on Land
+# SDG15 Awareness Website - Life on Land
 
 A comprehensive PHP-based web application promoting awareness about **UN Sustainable Development Goal 15: Life on Land**. This platform educates users about protecting terrestrial ecosystems, sustainably managing forests, combating desertification, halting biodiversity loss, and reversing land degradation.
 
@@ -159,7 +159,7 @@ Before installation, ensure you have:
 ### Step 1: Clone or Download
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/sdg15-awareness-website.git
+git clone https://github.com/mewHacks/sdg15-awareness-website.git
 
 # Or download and extract to your web server directory
 # XAMPP: C:/xampp/htdocs/sdg15-awareness-website
